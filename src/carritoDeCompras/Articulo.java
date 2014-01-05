@@ -1,5 +1,7 @@
 package carritoDeCompras;
 
+import java.text.DecimalFormat;
+
 public class Articulo {
 	
 	private String nombre;
@@ -42,6 +44,9 @@ public class Articulo {
 		return (this.precio * this.cantidad) - getDescuentoMonetario();
 	}
 	
-	
+	public String getTotalString() {
+		DecimalFormat df = new DecimalFormat("###,###,###");		
+		return "$" + df.format(getTotalAjustado());
+	}
 	
 }

@@ -1,6 +1,9 @@
 
 package carritoDeCompras;
 
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+
 
 public class mainCajero {
 
@@ -20,15 +23,18 @@ public class mainCajero {
 		double total_jabon  = jabon.getTotalAjustado();
 		double total_bebida = bebida.getTotalAjustado();
 		
+		DecimalFormat df = new DecimalFormat("###,###,###");
+		
 		System.out.println("-= Total de compras =-\n");
-		System.out.println(leche.getNombre()  +"\t $" + total_leche);
-		System.out.println(pan.getNombre()    +"\t $" + total_pan);
-		System.out.println(jabon.getNombre()  +"\t $" + total_jabon);
-		System.out.println(bebida.getNombre() +"\t $" + total_bebida);
+		System.out.printf("%-15s%-10s\n", leche.getNombre(), leche.getTotalString());
+		System.out.printf("%-15s%-10s\n", pan.getNombre(), pan.getTotalString());
+		System.out.printf("%-15s%-10s\n", jabon.getNombre(), jabon.getTotalString());
+		System.out.printf("%-15s%-10s\n", bebida.getNombre(), bebida.getTotalString());
+		
 		
 		double total = total_leche + total_pan + total_jabon + total_bebida;
 		
-		System.out.println("\nsu total es de $" + total);
+		System.out.println("\nsu total es de: $" + df.format(total));
 	
 	}
 
